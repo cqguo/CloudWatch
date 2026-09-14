@@ -1,6 +1,6 @@
-# CloudWatch · 云音乐 Apple Watch 客户端
+# 网易云音乐第三方 Apple Watch 应用
 
-原生 SwiftUI / watchOS 音乐应用，直接使用网易云音乐桌面客户端 EAPI。个人开发项目，非网易官方客户端。
+面向 Apple Watch 的网易云音乐第三方应用（Unofficial NetEase Cloud Music App for Apple Watch），使用 SwiftUI / watchOS 原生开发，直接调用网易云音乐桌面客户端 EAPI。个人开发项目，非网易官方出品。
 
 > **仅提供源代码，不提供 GitHub Release 或预编译安装包。需要自行使用 Xcode 编译、签名并安装。**
 
@@ -20,8 +20,8 @@
 1. 克隆仓库并打开工程：
 
    ```sh
-   git clone https://github.com/cqguo/CloudWatch.git
-   cd CloudWatch
+   git clone https://github.com/cqguo/NeteaseCloudMusic-AppleWatch.git
+   cd NeteaseCloudMusic-AppleWatch
    open CloudWatch.xcodeproj
    ```
 
