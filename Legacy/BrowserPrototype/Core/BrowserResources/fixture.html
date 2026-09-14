@@ -1,0 +1,12 @@
+<!doctype html><html><head><title>离线网页验证</title></head><body>
+<h1>网页引擎实验</h1><p>这是本地测试页面，不是网易云登录。</p>
+<button id="open">执行网页脚本</button><div id="dialog" hidden><p id="status">等待脚本</p><div id="qr"></div></div>
+<script src="qrcode.js"></script><script>
+document.getElementById('open').addEventListener('click',async function(){
+ document.getElementById('dialog').removeAttribute('hidden');
+ const response=await fetch('fixture-response.json');const result=await response.json();
+ document.getElementById('qr').innerHTML='';
+ new QRCode(document.getElementById('qr'),{text:result.text,width:144,height:144});
+ document.getElementById('status').textContent='页面脚本已生成测试二维码';
+});
+</script></body></html>

@@ -1,0 +1,34 @@
+# macOS and Xcode local state
+.DS_Store
+xcuserdata/
+*.xcuserstate
+DerivedData/
+
+# SwiftPM, builds and local diagnostics
+.build/
+.swiftpm/
+build/
+.local/
+*.app/
+*.dSYM/
+*.xcarchive/
+*.ipa
+*.log
+__pycache__/
+*.pyc
+
+# Credentials, signing and personal sessions
+.env
+.env.*
+Config.local.*
+provisioning.json
+*-session.json
+watch-login.svg
+*.pem
+*.key
+*.p12
+*.pfx
+*.mobileprovision
+*.provisionprofile
+*.har
+*.proxymanlog
