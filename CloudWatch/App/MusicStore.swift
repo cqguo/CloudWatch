@@ -28,21 +28,7 @@ import Network
         }
         monitor.start(queue: DispatchQueue(label:"cloudwatch.network"))
         configure(KeychainStore.load() ?? AccountConfiguration())
-        #if DEBUG
-        #if targetEnvironment(simulator)
-        if CommandLine.arguments.contains("--export-session"), let config = KeychainStore.load() {
-            let target = URL.documentsDirectory.appending(path:"session-transfer.json")
-            do {
-                try JSONEncoder().encode(config).write(to:target,options:.atomic)
-                try FileManager.default.setAttributes([.posixPermissions:0o600],ofItemAtPath:target.path)
-            } catch { self.error = "无法导出测试会话。" }
-        }
-        #endif
-        let file = URL.documentsDirectory.appending(path: "provisioning.json")
-        if let data = try? Data(contentsOf:file), let config = try? JSONDecoder().decode(AccountConfiguration.self, from:data) {
-            do { try KeychainStore.save(config); try FileManager.default.removeItem(at:file); configure(config) } catch { self.error = error.localizedDescription }
-        }
-        #endif
+
     }
     func configure(_ config: AccountConfiguration) {
         accountGeneration = UUID(); api = DesktopAPI(configuration:config); ready = config.loggedIn

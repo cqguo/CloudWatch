@@ -8,12 +8,7 @@ struct RootView: View {
     var body: some View {
         NavigationStack {
             Group {
-                #if DEBUG
-                if CommandLine.arguments.contains("--show-login") && !store.ready { LoginView() }
-                else if store.ready { LibraryView() } else { WelcomeView() }
-                #else
                 if store.ready { LibraryView() } else { WelcomeView() }
-                #endif
             }
             .navigationDestination(isPresented:$player.showPlayer) { PlayerView() }
             .alert("暂时无法完成", isPresented:Binding(get:{ store.error != nil },set:{ if !$0 { store.error = nil } })) { Button("知道了") { store.error = nil } } message: { Text(store.error ?? "") }

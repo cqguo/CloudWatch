@@ -4,5 +4,3 @@
 *.sh text eol=lf
 *.md text eol=lf
 *.png binary
-# Keep archived experiments out of GitHub's primary language statistics.
-Legacy/** linguist-vendored
